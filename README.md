@@ -50,6 +50,9 @@ sudo ./client
 > If you are in a region with strict network policies, conduct experiments only in a clean, isolated environment (e.g., a separate VM).  **Avoid using the regular internet**, as raw, unmasked traffic patterns are immediately identifiable and may compromise your anonymity.
 
 > [!NOTE]
+> Background research available in the pinned repository.
+
+> [!NOTE]
 > This project is in the public domain.  
 > Feel free to do whatever you want.  
 > Attribution is not required.
