@@ -49,6 +49,23 @@ sudo ./client
 > [!TIP]
 > If you are in a region with strict network policies, conduct experiments only in a clean, isolated environment (e.g., a separate VM).  **Avoid using the regular internet**, as raw, unmasked traffic patterns are immediately identifiable and may compromise your anonymity.
 
+### Traffic Lifecycle
+
+Both client and server instances employ two dedicated goroutines to handle bidirectional traffic flow, ensuring non-blocking, concurrent packet processing.
+
+**CLIENT:**
+- **Outbound:** `User App` -> `Kernel (plain)` -> `Golang (receives plain & encapsulates to IP/UDP)` -> `Kernel (enc.)` -> `Internet (to server)`
+- **Inbound:** `Internet (from server)` -> `Kernel (enc.)` -> `Golang (receives encapsulated IP/UDP & decapsulates to plain)` -> `Kernel (plain)` -> `User App`
+
+**SERVER:**
+- **To Internet:** `Internet (from client)` -> `Kernel (enc.)` -> `Golang (receives encapsulated IP/UDP & decapsulates to plain)` -> `Kernel (plain)` -> `Internet (to dest)`
+- **To Client:** `Internet (from dest)` -> `Kernel (plain)` -> `Golang (receives plain & encapsulates to IP/UDP)` -> `Kernel (enc.)` -> `Internet (to client)`
+
+> [!NOTE]
+> - (plain) = original raw traffic  
+> - (enc.) = encapsulated traffic (IP-in-UDP)  
+
+### Resources & Legal
 > [!NOTE]
 > Background research available in the pinned repository.
 
