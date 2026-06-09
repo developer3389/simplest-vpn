@@ -67,7 +67,7 @@ Both client and server instances employ two dedicated goroutines to handle bidir
 
 ### Resources & Legal
 > [!NOTE]
-> Background research available in the pinned repository.
+> Background research is available in another pinned repository.
 
 > [!NOTE]
 > This project is in the public domain.  
