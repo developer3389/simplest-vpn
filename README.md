@@ -22,14 +22,18 @@ We have built a simple prototype to prove this works. We kept it minimal—witho
 
 ### How to run on Linux:
 
-`Change the variables in code to match your configuration.`
+**Install Golang:**
+```bash
+sudo apt update && sudo apt install golang -y
+```
+**Configure:**
+Open `server.go` and `client.go` and adjust the network constants (IP, Port) to match your environment.
 
 **Setup Server:**
    ```bash
 mkdir server && cd server
 # Copy server.go into this directory
-go mod init server
-go mod tidy
+go mod init server && go mod tidy
 go build server.go
 sudo chmod +x ./server
 sudo ./server
@@ -39,8 +43,7 @@ sudo ./server
    ```bash
 mkdir client && cd client
 # Copy client.go into this directory
-go mod init client
-go mod tidy
+go mod init client && go mod tidy
 go build client.go
 sudo chmod +x ./client
 sudo ./client
