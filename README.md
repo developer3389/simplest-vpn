@@ -23,9 +23,9 @@ We have built a simple prototype to prove this works. We kept it minimal—witho
 ### How to run on Linux:
 
 **Install Golang:**
-```bash
-sudo apt update && sudo apt install golang -y
-```
+- Install: ```sudo apt update && sudo apt install golang -y```
+- Verify installation: `go version`
+
 **Configure:**
 Open `server.go` and `client.go` and adjust the network constants (IP, Port) to match your environment.
 
