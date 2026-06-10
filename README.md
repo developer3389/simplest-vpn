@@ -36,6 +36,7 @@ mkdir server && cd server
 go mod init server && go mod tidy
 go build server.go
 sudo chmod +x ./server
+# TUN interface needs root
 sudo ./server
 ```
 
@@ -46,6 +47,7 @@ mkdir client && cd client
 go mod init client && go mod tidy
 go build client.go
 sudo chmod +x ./client
+# TUN interface needs root
 sudo ./client
 ```
 
