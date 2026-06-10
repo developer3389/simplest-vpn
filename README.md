@@ -72,7 +72,7 @@ Both client and server instances employ two dedicated goroutines to handle bidir
 
 ### Resources & Legal
 > [!NOTE]
-> Background research is available in another pinned repository.
+> For a detailed analysis of modern infrastructure challenges and the design philosophy of this project, see [another repository](https://github.com/developer3389/network-censorship-analysis).
 
 > [!NOTE]
 > This project is in the public domain.  
