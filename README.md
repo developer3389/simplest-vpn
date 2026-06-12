@@ -100,6 +100,7 @@ apt install -y \
     procps \
     git \
     nano \
+    curl \
     iperf3
 ```
 
@@ -107,7 +108,6 @@ apt install -y \
 
 ```bash
 # Install Ookla Speedtest
-sudo apt-get install curl
 curl -s https://packagecloud.io/install/repositories/ookla/speedtest-cli/script.deb.sh | sudo bash
 sudo apt-get install -y speedtest
 ```
