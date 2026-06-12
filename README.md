@@ -146,6 +146,11 @@ go version
 
 You should see an output similar to this: `go version go1.2x.x linux/amd64`
 
+### 1.4. Reboot the System:
+```bash
+reboot
+```
+
 ## 2. Clone this repository:
 ```bash
 git clone https://github.com/developer3389/simplest-vpn.git
