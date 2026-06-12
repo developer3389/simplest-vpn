@@ -92,8 +92,8 @@ If any of these are missing, follow these steps to set up your environment
 
 ```bash
 # Install networking and build dependencies:
-apt update && \
-apt install -y \
+sudo apt update && \
+sudo apt install -y \
     sudo \
     iproute2 \
     iptables \
