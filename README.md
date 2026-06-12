@@ -87,7 +87,7 @@ If any of these are missing, follow these steps to set up your environment
     - Log in as root: `su -`
     - Update packages and install sudo: `apt update && apt install -y sudo`
     - Add your user to the sudo group: `usermod -aG sudo <YOUR_SIMPLE_USER_NAME>`
-    - Reboot the system: `reboot`
+    - Log out and log back in for group changes to take effect.
 
 1. Install networking and build dependencies:
 
@@ -113,21 +113,15 @@ sudo apt install -y \
 curl -s https://packagecloud.io/install/repositories/ookla/speedtest-cli/script.deb.sh | sudo bash
 sudo apt-get install -y speedtest
 ```
-3. Reboot the system:
 
-```bash
-# Reboot to apply changes
-reboot
-```
-
-4. Verify the installation:
+3. Verify the installation:
 
 ```bash
 # Ensure all system binaries are found
 which sudo ip sysctl ethtool iptables git nano iperf3 speedtest
 ```
 
-5. Troubleshooting:  
+4. Troubleshooting:  
 If any commands are not found:
     - Fix PATH:
         - If the commands are still missing, your PATH variable may be misconfigured.  
@@ -147,12 +141,12 @@ go version
 
 You should see an output similar to this: `go version go1.2x.x linux/amd64`
 
-### 1.4. Reboot the System:
+## 2. Reboot the System:
 ```bash
 reboot
 ```
 
-## 2. Clone this repository:
+## 3. Clone this repository:
 ```bash
 git clone https://github.com/developer3389/simplest-vpn.git
 ```
@@ -160,7 +154,7 @@ git clone https://github.com/developer3389/simplest-vpn.git
 > [!TIP]   
 > Run this command *right now* on both the client and the server.
 
-## 3. Firstly, Setup Server:
+## 4. Firstly, Setup Server:
 
 ```bash
 # Create directory and go into it
@@ -202,7 +196,7 @@ sudo chmod +x ./server && sudo ./server
 
 You should see `VPN listening on port 8080` string.
 
-## 4. Then, Setup Client:
+## 5. Then, Setup Client:
 
 ```bash
 # Create directory and go into it
@@ -246,7 +240,7 @@ sudo chmod +x ./client && sudo ./client
 
 You should see `VPN started on port 8080` string.
 
-## 5. Testing
+## 6. Testing
 - On server: `iperf3 -s`
 - On client without VPN: `iperf3 -c 192.168.0.x -t 10`
 - On client via VPN: `iperf3 -c 10.0.0.1 -t 10`
