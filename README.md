@@ -126,8 +126,6 @@ which sudo ip sysctl ethtool iptables git nano iperf3 speedtest
 
 6. Troubleshooting:  
 If any commands are not found:
-    - Reboot:
-        - Sometimes a simple system reboot is sufficient to update your shell environment.  
     - Fix PATH:
         - If the commands are still missing, your PATH variable may be misconfigured.  
         Feel free to ask an AI (like ChatGPT or Claude) to help you fix your specific system PATH settings.
