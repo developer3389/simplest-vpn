@@ -61,9 +61,9 @@ Once installed, check your router's DHCP client list to find the IPs assigned to
    You should see a successful response:
 
     ```bash
-    64 bytes from 8.8.8.8: icmp_seq=1 ttl=117 time=xx.x ms
-    64 bytes from 8.8.8.8: icmp_seq=1 ttl=117 time=xx.x ms
-    64 bytes from 8.8.8.8: icmp_seq=1 ttl=117 time=xx.x ms
+    64 bytes from 8.8.8.8: icmp_seq=x ttl=117 time=xx.x ms
+    64 bytes from 8.8.8.8: icmp_seq=x ttl=117 time=xx.x ms
+    64 bytes from 8.8.8.8: icmp_seq=x ttl=117 time=xx.x ms
     ```
     VM setup complete.
 
@@ -86,6 +86,7 @@ If any of these are missing, follow these steps to set up your environment
 0. If you cannot find `sudo`:  
     - Login as `su -`  
     - Run: `apt update && apt install sudo`
+    - Exit from root: `exit`
 
 2. Install networking and build dependencies:
 
@@ -134,8 +135,14 @@ If any commands are not found:
 </details>
 
 ### 1.3. Install Golang:
-- Install: ```sudo apt update && sudo apt install golang -y```
-- Verify installation: `go version`
+- Install: 
+```bash
+sudo apt update && sudo apt install golang -y
+```
+- Verify installation:
+```bash
+go version
+```
 
 You should see an output similar to this: `go version go1.2x.x linux/amd64`
 
@@ -163,10 +170,14 @@ cp ../simplest-vpn/server.go .
 # Init golang environment
 go mod init server && go mod tidy
 ```
+> [!WARNING]  
+> **Configure these variables in `server.go` to match your environment:**
+> - `serverPort`: The port the server is listening on.
+> - `mainIfaceName`: Your primary network interface (e.g., `eth0`).
+> - `mainIfaceMtu`: MTU of your main interface (usually 1500).
 
 ```bash
 # Configure `server.go` in editor.
-# Set the gateway Name for your environment.
 nano server.go
 # Save: ctrl+X; Y
 # Exit without saving: ctrl+X; N
@@ -201,11 +212,16 @@ cp ../simplest-vpn/client.go .
 # Init golang environment
 go mod init client && go mod tidy
 ```
+> [!WARNING]  
+> **Configure these variables in `client.go` to match your environment:**
+> - `serverIp`: The destination IP of your server.
+> - `serverPort`: The port the server is listening on.
+> - `mainIfaceName`: Your primary network interface (e.g., `eth0`).
+> - `mainIfaceMtu`: MTU of your main interface (usually 1500).
+> - `mainIfaceGateway`: The IP of your router/gateway (required for routing).
 
 ```bash
 # Configure `client.go` in editor.
-# Set the server IP and Port for your environment.
-# Set the gateway Name and IP for your environment.
 nano client.go
 # Save: ctrl+X; Y
 # Exit without saving: ctrl+X; N
