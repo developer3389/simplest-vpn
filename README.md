@@ -83,12 +83,13 @@ If any of these are missing, follow these steps to set up your environment
 <details>
 <summary>Environment Setup</summary>
 
-0. If you cannot find `sudo`:  
-    - Login as `su -`  
-    - Run: `apt update && apt install sudo`
-    - Exit from root: `exit`
+0. **If you cannot find `sudo`**:
+    - Log in as root: `su -`
+    - Update packages and install sudo: `apt update && apt install -y sudo`
+    - Add your user to the sudo group: `usermod -aG sudo <YOUR_SIMPLE_USER_NAME>`
+    - Reboot the system: `reboot`
 
-2. Install networking and build dependencies:
+1. Install networking and build dependencies:
 
 ```bash
 # Install networking and build dependencies:
@@ -105,28 +106,28 @@ sudo apt install -y \
     iperf3
 ```
 
-3. Install Ookla Speedtest:
+2. Install Ookla Speedtest:
 
 ```bash
 # Install Ookla Speedtest
 curl -s https://packagecloud.io/install/repositories/ookla/speedtest-cli/script.deb.sh | sudo bash
 sudo apt-get install -y speedtest
 ```
-4. Reboot the system:
+3. Reboot the system:
 
 ```bash
 # Reboot to apply changes
 reboot
 ```
 
-5. Verify the installation:
+4. Verify the installation:
 
 ```bash
 # Ensure all system binaries are found
 which sudo ip sysctl ethtool iptables git nano iperf3 speedtest
 ```
 
-6. Troubleshooting:  
+5. Troubleshooting:  
 If any commands are not found:
     - Fix PATH:
         - If the commands are still missing, your PATH variable may be misconfigured.  
