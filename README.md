@@ -21,6 +21,7 @@ We have built a simple prototype to prove this works. We kept it minimal - witho
 > This ensures the data remains objective and allows users to measure performance within their own network environments, where results will naturally vary based on hardware, network path, and configuration.
 
 # Deployment Guide
+*This guide is designed for a clean installation of **Debian 13.***
 
 ## 1. Setup Hardware
 If you have two Linux-based VPS, that's perfect.  
@@ -36,35 +37,62 @@ Otherwise, use virtualization:
 <details>
 <summary>Setup Emulated Hardware</summary>
 
-### 1.1 Setup Emulated Hardware  
+### 1.1 Setting up Emulated Hardware
 
-1. Download the Debian virtual machine ISO-image from here for 64-bit AMD PC: [link](https://cdimage.debian.org/debian-cd/current/amd64/iso-cd/debian-13.5.0-amd64-netinst.iso)
+1. **Download the ISO**:  
+Download the current Debian 13 (64-bit) netinst image: [Debian 13.5.0 AMD64](https://cdimage.debian.org/debian-cd/current/amd64/iso-cd/debian-13.5.0-amd64-netinst.iso)
 
-2. Using a hypervisor like Hyper-V, VirtualBox, or VMware, create two Debian virtual machines.  
-Allocate `at least 2 GB` of RAM to each and configure the network adapter to receive an IP address from your physical router.
+2. **Configure Virtual Machines**:  
+Using a hypervisor (Hyper-V, VirtualBox, or VMware), create two virtual machines. Allocate at least **2 GB of RAM** to each and set the network adapter to **Bridged Mode** so they receive IP addresses directly from your physical router.
 
-3. Once both VMs are installed, they should obtain IP addresses from your router.  
-Pin these addresses via DHCP by assigning them as static leases in your router's interface.
+3. **Assign Static Leases**:  
+Once installed, check your router's DHCP client list to find the IPs assigned to your VMs. Pin these addresses by assigning them as **Static Leases** in your router's interface to ensure they remain constant.
 
-4. Take a real home network with a physical router.    
-Let's assume the router gateway is `192.168.0.1`.  
-Run `ip a` command.  
-Look for the `eth0` or `enp0s3` interface; it should have an IP address within the `192.168.0.x` range.  
-Check ping: `ping 8.8.8.8`  
-You should see an output similar to this:
-```bash
-PING 8.8.8.8 (8.8.8.8) xx(xx) bytes of data.
-64 bytes from 8.8.8.8: icmp_seq=x ttl=xxx time=xx.x ms
-64 bytes from 8.8.8.8: icmp_seq=x ttl=xxx time=xx.x ms
-```
+4. **Network Verification**:   
+   Assuming your router gateway is `192.168.0.1`, verify connectivity from your VM:
+   ```bash
+   # Check network interface
+   ip a
+   
+   # Test external connectivity
+   ping -c 3 8.8.8.8
+   ```
+
+   You should see a successful response:
+
+    ```bash
+    64 bytes from 8.8.8.8: icmp_seq=1 ttl=117 time=xx.x ms
+    64 bytes from 8.8.8.8: icmp_seq=1 ttl=117 time=xx.x ms
+    64 bytes from 8.8.8.8: icmp_seq=1 ttl=117 time=xx.x ms
+    ```
+    VM setup complete.
+
 </details>
 
 ### 1.2. Environment Setup
+
+Ensure all required system tools are available:
+
 ```bash
-# Install prerequisites for networking and building
+# Check if all required system tools are available:
+which sudo ip sysctl ethtool iptables git nano iperf3 speedtest
+```
+
+If any of these are missing, follow these steps to set up your environment
+
+<details>
+<summary>Environment Setup</summary>
+
+0. If you cannot find `sudo`:  
+    - Login as `su -`  
+    - Run: `apt update && apt install sudo`
+
+2. Install networking and build dependencies:
+
+```bash
+# Install networking and build dependencies:
 sudo apt update && \
 sudo apt install -y \
-    sudo \
     iproute2 \
     iptables \
     ethtool \
@@ -74,12 +102,37 @@ sudo apt install -y \
     iperf3
 ```
 
+3. Install Ookla Speedtest:
+
 ```bash
-# Setup Speedtest OOKLA
+# Install Ookla Speedtest
 sudo apt-get install curl
 curl -s https://packagecloud.io/install/repositories/ookla/speedtest-cli/script.deb.sh | sudo bash
 sudo apt-get install -y speedtest
 ```
+4. Reboot the system:
+
+```bash
+# Reboot to apply changes
+reboot
+```
+
+5. Verify the installation:
+
+```bash
+# Ensure all system binaries are found
+which sudo ip sysctl ethtool iptables git nano iperf3 speedtest
+```
+
+6. Troubleshooting:  
+If any commands are not found:
+    - Reboot:
+        - Sometimes a simple system reboot is sufficient to update your shell environment.  
+    - Fix PATH:
+        - If the commands are still missing, your PATH variable may be misconfigured.  
+        Feel free to ask an AI (like ChatGPT or Claude) to help you fix your specific system PATH settings.
+
+</details>
 
 ### 1.3. Install Golang:
 - Install: ```sudo apt update && sudo apt install golang -y```
@@ -123,11 +176,6 @@ go build
 ```
 
 ```bash
-# Ensure system binaries are found (vital for iptables/ip/ethtool)
-export PATH=$PATH:/usr/local/sbin:/usr/sbin:/sbin
-```
-
-```bash
 # Set executable rights
 # TUN interface needs root
 sudo chmod +x ./server && sudo ./server
@@ -166,11 +214,6 @@ go build
 ```
 
 ```bash
-# Ensure system binaries are found (vital for iptables/ip/ethtool)
-export PATH=$PATH:/usr/local/sbin:/usr/sbin:/sbin
-```
-
-```bash
 # Set executable rights
 # TUN interface needs root
 sudo chmod +x ./client && sudo ./client
@@ -201,11 +244,12 @@ Ensure that pinging `8.8.8.8` produces no output.
 
 Reconnect the VPN by running: `./client`  
 
-Check ping: `ping 8.8.8.8`
+Check ping: `ping -с 3 8.8.8.8`
 
 You should see an output similar to this:
 ```bash
 PING 8.8.8.8 (8.8.8.8) xx(xx) bytes of data.
+64 bytes from 8.8.8.8: icmp_seq=x ttl=xxx time=xx.x ms
 64 bytes from 8.8.8.8: icmp_seq=x ttl=xxx time=xx.x ms
 64 bytes from 8.8.8.8: icmp_seq=x ttl=xxx time=xx.x ms
 ```
@@ -213,8 +257,8 @@ PING 8.8.8.8 (8.8.8.8) xx(xx) bytes of data.
 Now, run the speedtest: `speedtest`  
 You should see an output similar to this:
 ```bash
-   Download:   52.33 Mbps
-   Upload:    92.57 Mbps
+   Download:   94.57 Mbps
+   Upload:    92.33 Mbps
    Packet Loss:     0.0%
 ```
 
