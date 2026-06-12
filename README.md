@@ -140,7 +140,10 @@ If any commands are not found:
 You should see an output similar to this: `go version go1.2x.x linux/amd64`
 
 ## 2. Clone this repository:
-```git clone https://github.com/developer3389/simplest-vpn.git```
+```bash
+git clone https://github.com/developer3389/simplest-vpn.git
+```
+
 > [!TIP]   
 > Run this command *right now* on both the client and the server.
 
