@@ -93,6 +93,7 @@ If any of these are missing, follow these steps to set up your environment
 # Install networking and build dependencies:
 sudo apt update && \
 sudo apt install -y \
+    sudo \
     iproute2 \
     iptables \
     ethtool \
