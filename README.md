@@ -162,7 +162,7 @@ go mod init server && go mod tidy
 
 ```bash
 # Configure `server.go` in editor.
-# Set the gateway for your environment.
+# Set the gateway Name for your environment.
 nano server.go
 # Save: ctrl+X; Y
 # Exit without saving: ctrl+X; N
@@ -200,7 +200,8 @@ go mod init client && go mod tidy
 
 ```bash
 # Configure `client.go` in editor.
-# Set the IP, port and gateway for your environment.
+# Set the server IP and Port for your environment.
+# Set the gateway Name and IP for your environment.
 nano client.go
 # Save: ctrl+X; Y
 # Exit without saving: ctrl+X; N
