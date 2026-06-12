@@ -49,6 +49,7 @@ const (
 var lastClientAddr atomic.Pointer[net.UDPAddr]
 
 func main() {
+	os.Setenv("PATH", "/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin")
 
 	preUp()
 
