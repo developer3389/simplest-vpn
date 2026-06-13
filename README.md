@@ -20,6 +20,18 @@ We have built a simple prototype to prove this works. We kept it minimal - witho
 > Our objective is for the community to verify these findings independently rather than relying on our claims.   
 > This ensures the data remains objective and allows users to measure performance within their own network environments, where results will naturally vary based on hardware, network path, and configuration.
 
+## How to Develop Your Own VPN
+
+> [!NOTE]
+> Developing a distributed system like a VPN requires a specialized setup.  
+> We have created a comprehensive guide covering everything from remote SSH development to synchronizing project contexts with AI:
+>
+> **Check out the guide here:** [vpn-dev-guide](https://github.com/developer3389/vpn-dev-guide)
+
+## Why not just use WireGuard?
+> [!NOTE]
+> For a detailed analysis of modern infrastructure challenges and the design philosophy of this project, see [another repository](https://github.com/developer3389/network-censorship-analysis).
+
 # Deployment Guide
 *This guide is designed for a clean installation of **Debian 13.***
 
@@ -288,14 +300,6 @@ You should see an output similar to this:
 
 🟢🟢🟢 Congratulations! Your custom VPN protocol is now up and running! 🟢🟢🟢
 
-## How to Develop Your Own VPN
-
-> [!NOTE]
-> Developing a distributed system like a VPN requires a specialized setup.  
-> We have created a comprehensive guide covering everything from remote SSH development to synchronizing project contexts with AI:
->
-> **Check out the guide here:** [vpn-dev-guide](https://github.com/developer3389/vpn-dev-guide)
-
 ## Traffic Lifecycle
 *This is optional and provided only for better understanding of the underlying mechanics.*
 <details>
@@ -316,10 +320,7 @@ Both client and server instances employ two dedicated goroutines to handle bidir
 > - (enc.) = encapsulated traffic (IP-in-UDP)  
 </details>
 
-## Resources & Legal
-> [!NOTE]
-> For a detailed analysis of modern infrastructure challenges and the design philosophy of this project, see [another repository](https://github.com/developer3389/network-censorship-analysis).
-
+## Legal
 > [!NOTE]
 > This project is in the public domain.  
 > Feel free to do whatever you want.  
