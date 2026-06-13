@@ -20,7 +20,9 @@ import (
 
 // Direct routes that should bypass the VPN
 var (
-	directRoutes = []string{serverIp}
+	directRoutes = []string{
+		serverIp, // Comment out if the server is on the same L2 network (same subnet) as the client
+	}
 )
 
 // server to connect
