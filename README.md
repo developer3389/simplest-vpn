@@ -288,6 +288,14 @@ You should see an output similar to this:
 
 🟢🟢🟢 Congratulations! Your custom VPN protocol is now up and running! 🟢🟢🟢
 
+## How to Develop Your Own VPN
+
+> [!NOTE]
+> Developing a distributed system like a VPN requires a specialized setup.  
+> We have created a comprehensive guide covering everything from remote SSH development to synchronizing project contexts with AI:
+>
+> **Check out the guide here:** [vpn-dev-guide](https://github.com/developer3389/vpn-dev-guide)
+
 ## Traffic Lifecycle
 *This is optional and provided only for better understanding of the underlying mechanics.*
 <details>
