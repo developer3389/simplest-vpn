@@ -220,6 +220,11 @@ go mod init client && go mod tidy
 > - `mainIfaceMtu`: MTU of your main interface (usually 1500).
 > - `mainIfaceGateway`: The IP of your router/gateway (required for routing).
 
+> [!WARNING]
+> **Routing Note:**  
+> The `serverIp` in `directRoutes` is enabled by default to ensure traffic to a remote server (behind a router) is routed via `mainIfaceGateway`.  
+> If your server is on the same L2 network (same subnet) as the client, comment out this entry to allow the OS to reach it directly via ARP.
+
 ```bash
 # Configure `client.go` in editor.
 nano client.go
