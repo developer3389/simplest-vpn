@@ -191,7 +191,7 @@ go mod init server && go mod tidy
 ```bash
 # Configure `server.go` in editor.
 nano server.go
-# Save: ctrl+X; Y
+# Save: ctrl+X; Y; Enter
 # Exit without saving: ctrl+X; N
 ```
 
@@ -240,7 +240,7 @@ go mod init client && go mod tidy
 ```bash
 # Configure `client.go` in editor.
 nano client.go
-# Save: ctrl+X; Y
+# Save: ctrl+X; Y; Enter
 # Exit without saving: ctrl+X; N
 ```
 
