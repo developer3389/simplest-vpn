@@ -27,7 +27,7 @@ var (
 
 // server to connect
 const (
-	serverIp   = "192.168.0.3"
+	serverIp   = "192.168.0.4"
 	serverPort = 8080
 )
 
