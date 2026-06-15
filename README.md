@@ -18,6 +18,8 @@
 5. [Traffic Lifecycle](#traffic-lifecycle)
 6. [Legal](#legal)
 
+---
+
 ## Project Overview: VPN Complexity Deconstructed
 The goal of this repository is to demonstrate that a functional VPN is, at its core, a simple mechanism.  
 The entire project consists of roughly 200 unique lines of code, structured symmetrically: the two halves of the system share the same core logic.  
