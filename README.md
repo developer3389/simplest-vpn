@@ -4,6 +4,20 @@
 > **NO ENCRYPTION, AUTHENTICATION, OR SECURITY MEASURES** ARE IMPLEMENTED.  
 > Use at your own risk.
 
+## Table of Contents
+1. [Project Overview](#project-overview-vpn-complexity-deconstructed)
+2. [How to Develop Your Own VPN](#how-to-develop-your-own-vpn)
+3. [Why not just use WireGuard?](#why-not-just-use-wireguard)
+4. [Deployment Guide](#deployment-guide)
+    - [1. Setup Hardware](#1-setup-hardware)
+    - [2. Reboot the System](#2-reboot-the-system)
+    - [3. Clone Repository](#3-clone-this-repository)
+    - [4. Setup Server](#4-firstly-setup-server)
+    - [5. Setup Client](#5-then-setup-client)
+    - [6. Testing](#6-testing)
+5. [Traffic Lifecycle](#traffic-lifecycle)
+6. [Legal](#legal)
+
 ## Project Overview: VPN Complexity Deconstructed
 The goal of this repository is to demonstrate that a functional VPN is, at its core, a simple mechanism.  
 The entire project consists of roughly 200 unique lines of code, structured symmetrically: the two halves of the system share the same core logic.  
