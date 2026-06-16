@@ -231,7 +231,7 @@ git clone https://github.com/developer3389/simplest-vpn.git
 
 ```bash
 # Create directory and go into it
-mkdir server && cd server
+mkdir -p server && cd server
 ```
 
 ```bash
@@ -273,7 +273,7 @@ You should see `VPN listening on port 8080` string.
 
 ```bash
 # Create directory and go into it
-mkdir client && cd client
+mkdir -p client && cd client
 ```
 
 ```bash
