@@ -56,6 +56,23 @@ If you have two Linux-based VPS, that's perfect.
 If you have two Linux-based hardware devices, that's perfect.  
 If you have one Linux-based hardware device and one Linux-based VPS, that's perfect.
 
+```plain
++-----------------------------------------------------------+
+|                  Local Workstation                        |
+|  +-----------------------+     +-----------------------+  |
+|  |  Terminal Window 1    |     |  Terminal Window 2    |  |
+|  |     (VPN Client)      |     |     (VPN Server)      |  |
+|  +-----------+-----------+     +-----------+-----------+  |
+|              |                             |              |
+|        Remote-SSH (22)               Remote-SSH (22)      |
+|              |                             |              |
++--------------|-----------------------------|--------------+
+               |                             |
+      +--------v--------+           +--------v--------+
+      |  Remote Linux   |           |  Remote Linux   |
+      |     Client      |           |     Server      |
+      +-----------------+           +-----------------+
+```
 
 > [!TIP]  
 > If you are in a region with strict network policies, conduct experiments only in a clean, isolated environment (e.g., a separate VM).  **Avoid using the regular internet**, as raw, unmasked traffic patterns are immediately identifiable and may compromise your privacy.
@@ -66,6 +83,34 @@ Otherwise, use virtualization:
 <summary>Setup Emulated Hardware</summary>
 
 ### 1.1 Setting up Emulated Hardware
+
+```plain
++-------------------------------------------------------------------+
+|                         Local Workstation                         |
+|                                                                   |
+|  +-----------------------+             +-----------------------+  |
+|  |  Terminal Window 1    |             |  Terminal Window 2    |  |
+|  |     (VPN Client)      |             |     (VPN Server)      |  |
+|  +-----------+-----------+             +-----------+-----------+  |
+|              |                                     |              |
+|        Remote-SSH (22)                       Remote-SSH (22)      |
+|              |                                     |              |
+|   +----------v-------------------------------------v----------+   |
+|   |          |         HyperV / VirtualBox         |          |   |
+|   |          |                                     |          |   |
+|   |  +-------v---------+                 +---------v-------+  |   |
+|   |  |   VM 1 (Linux)  |                 |    VM 2 (Linux) |  |   |
+|   |  |     Client      |                 |      Server     |  |   |
+|   |  +--------+--------+                 +--------+--------+  |   |
+|   +-----------|-----------------------------------|-----------+   |
+|               |                                   |               |
+|        Bridged (vNIC)                      Bridged (vNIC)         |
++---------------|-----------------------------------|---------------+
+                |                                   |
+            +---v-----------------------------------v---+
+            |             Real Router DHCP              |
+            +-------------------------------------------+
+```
 
 1. **Download the ISO**:  
 Download the current Debian 13 (64-bit) netinst image: [Debian 13.5.0 AMD64](https://cdimage.debian.org/debian-cd/current/amd64/iso-cd/debian-13.5.0-amd64-netinst.iso)
