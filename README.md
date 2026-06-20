@@ -6,9 +6,9 @@
 
 ## Table of Contents
 1. [Project Overview](#project-overview-vpn-complexity-deconstructed)
-2. [How to Develop Your Own VPN](#how-to-develop-your-own-vpn)
+2. [How can I share this VPN across my home devices?](#how-can-i-share-this-vpn-across-my-home-devices)
 3. [Why not just use WireGuard?](#why-not-just-use-wireguard)
-4. [How can I share this VPN across my home devices?](#how-can-i-share-this-vpn-across-my-home-devices)
+4. [How to Develop Your Own VPN](#how-to-develop-your-own-vpn)
 5. [Deployment Guide](#deployment-guide)
     - [1. Setup Hardware](#1-setup-hardware)
     - [2. Reboot the System](#2-reboot-the-system)
@@ -37,17 +37,17 @@ We have built a simple prototype to prove this works. We kept it minimal - witho
 > Our objective is for the community to verify these findings independently rather than relying on our claims.   
 > This ensures the data remains objective and allows users to measure performance within their own network environments, where results will naturally vary based on hardware, network path, and configuration.
 
-## How to Develop Your Own VPN
-> [!NOTE]
-> Interested in building your own VPN? Learn how to set up your dev environment, use remote SSH, and work with AI in our full [**vpn-dev-guide**](https://github.com/developer3389/vpn-dev-guide).
+## How can I share this VPN across my home devices?
+> [!TIP]
+You can read [**our guide**](https://github.com/developer3389/vpn-gateway) how to setup vpn-gateway for entire home network.
 
 ## Why not just use WireGuard?
 > [!NOTE]
 > For a detailed analysis of modern infrastructure challenges and the design philosophy of this project, see [**this repository**](https://github.com/developer3389/network-censorship-analysis).
 
-## How can I share this VPN across my home devices?
-> [!TIP]
-You can read [**our guide**](https://github.com/developer3389/vpn-gateway) how to setup vpn-gateway for entire home network.
+## How to Develop Your Own VPN
+> [!NOTE]
+> Interested in building your own VPN? Learn how to set up your dev environment, use remote SSH, and work with AI in our full [**vpn-dev-guide**](https://github.com/developer3389/vpn-dev-guide).
 
 # Deployment Guide
 *This guide is designed for a clean installation of **Debian 13.***
