@@ -8,15 +8,16 @@
 1. [Project Overview](#project-overview-vpn-complexity-deconstructed)
 2. [How to Develop Your Own VPN](#how-to-develop-your-own-vpn)
 3. [Why not just use WireGuard?](#why-not-just-use-wireguard)
-4. [Deployment Guide](#deployment-guide)
+4. [How can I share this VPN across my home devices?](#how-can-i-share-this-vpn-across-my-home-devices)
+5. [Deployment Guide](#deployment-guide)
     - [1. Setup Hardware](#1-setup-hardware)
     - [2. Reboot the System](#2-reboot-the-system)
     - [3. Clone Repository](#3-clone-this-repository)
     - [4. Setup Server](#4-firstly-setup-server)
     - [5. Setup Client](#5-then-setup-client)
     - [6. Testing](#6-testing)
-5. [Traffic Lifecycle](#traffic-lifecycle)
-6. [Legal](#legal)
+6. [Traffic Lifecycle](#traffic-lifecycle)
+7. [Legal](#legal)
 
 ---
 
@@ -47,6 +48,10 @@ We have built a simple prototype to prove this works. We kept it minimal - witho
 ## Why not just use WireGuard?
 > [!NOTE]
 > For a detailed analysis of modern infrastructure challenges and the design philosophy of this project, see [another repository](https://github.com/developer3389/network-censorship-analysis).
+
+## How can I share this VPN across my home devices?
+> [!TIP]
+You can read [**our guide**](https://github.com/developer3389/vpn-gateway) how to setup vpn-gateway for entire home network.
 
 # Deployment Guide
 *This guide is designed for a clean installation of **Debian 13.***
