@@ -18,6 +18,7 @@
     - [6. Testing](#6-testing)
 6. [Traffic Lifecycle](#traffic-lifecycle)
 7. [Legal](#legal)
+8. [Acknowledgements](#acknowledgements)
 
 ---
 
@@ -387,3 +388,8 @@ Both client and server instances employ two dedicated goroutines to handle bidir
 > This project is in the public domain.  
 > Feel free to do whatever you want.  
 > Attribution is not required.
+
+## Acknowledgements
+This project was inspired by the active open-source community dedicated to low-level networking. A special thanks to:
+
+- **[theotrama/vpn](https://github.com/theotrama/vpn)**: For pioneering independent research on TUN-based packet tunneling and modular network protocol implementation in Go.
