@@ -53,7 +53,7 @@ You can read [**our guide**](https://github.com/developer3389/vpn-gateway) how t
 > [!CAUTION]
 > **Important Note on Encryption**:  
 > You should approach encryption with extreme caution, as errors in cryptography implementation or key management can completely compromise the confidentiality of your traffic.
-> We strongly recommend thoroughly reviewing written code using modern AI agents before deploying a user-defined VPN in a hostile environment.
+> We strongly recommend thoroughly **reviewing written code using modern AI agents** before deploying a user-defined VPN in a hostile environment.
 
 # Deployment Guide
 *This guide is designed for a clean installation of **Debian 13.***
