@@ -50,6 +50,11 @@ You can read [**our guide**](https://github.com/developer3389/vpn-gateway) how t
 > [!NOTE]
 > Interested in building your own VPN? Learn how to set up your dev environment, use remote SSH, and work with AI in our full [**vpn-dev-guide**](https://github.com/developer3389/vpn-dev-guide).
 
+> [!CAUTION]
+> **Important Note on Encryption**:  
+> You should approach encryption with extreme caution, as errors in cryptography implementation or key management can completely compromise the confidentiality of your traffic.
+> We strongly recommend thoroughly reviewing written code using modern AI agents before deploying a user-defined VPN in a hostile environment.
+
 # Deployment Guide
 *This guide is designed for a clean installation of **Debian 13.***
 
